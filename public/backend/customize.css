@@ -1,0 +1,76 @@
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.bf-shadow {
+    position: relative;
+}
+
+.bf-shadow::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 22px;
+    background: #ecf018;
+    opacity: .3;
+    bottom: 3px;
+    left: -2px;
+    z-index: -1;
+}
+
+.btn-gg {
+    border: .5px solid #46464650;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.btn-gg:hover {
+    background-color: #eff9fc;
+    border: .5px solid #bef0ff;
+}
+
+h5 {
+    text-transform: uppercase;
+}
+
+.uk-flex {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.uk-flex-middle {
+    align-items: center;
+    -ms-flex-align: center;
+}
+
+.uk-flex-space-between {
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.btn-spec {
+    margin-bottom: 0;
+    font-size: 13px;
+    border-radius: 4px;
+    height: 32px;
+}
+
+.filter .form-control {
+    height: 32px;
+    max-width: 200px;
+    font-size: 13px;
+}
+.box-shadow .ibox{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.panel-title {
+    font-weight: 700;
+    font-size: 26px;
+    color: #272bf5;
+    margin-bottom: 16px;
+}
