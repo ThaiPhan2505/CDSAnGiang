@@ -12,4 +12,5 @@ interface UserRepositoryInterface
     public function create();
     public function findById(int $Id);
     public function delete(int $Id);
+    public function update(int $Id, array $payload);
 }

@@ -21,9 +21,26 @@ class UserService implements UserServiceInterface
         $this->userRepository = $userRepository;
     }
 
-    public function paginate() {
-        $users = $this->userRepository->getAllPaginate();
+    public function paginate($request) {
+        $condition['keyword'] = addslashes($request->input('keyword'));
+        $perPage = $request->integer('perpage');
+        $users = $this->userRepository->pagination([
+            'id', 'name', 'email', 'password', 'status'], 
+            $condition, [], ['path' => 'user/index']);
         return $users;
+    }
+
+    public function updateStatus($post = []) {
+        DB::beginTransaction();
+        try {
+            $payload[$post['field']] = (($post['value'] == 'Active')?'Inactive':'Active');
+            $users = $this->userRepository->update($post['modelId'], $payload);
+            DB::commit();
+            return true;
+        } catch(\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
     }
 
     public function create($request) {

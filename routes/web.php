@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\DoanhnghiepController;
+use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
 use App\Http\Middleware\AuthenticateMiddleware;
 use App\Http\Middleware\LoginMiddleware;
 
@@ -42,6 +43,11 @@ Route::group(['prefix' => 'doanhnghiep'], function() {
     Route::get('{id}/edit', [DoanhnghiepController::class, 'edit'])->name('doanhnghiep.edit')->middleware('admin');
     Route::get('delete', [DoanhnghiepController::class, 'delete'])->name('doanhnghiep.delete')->middleware('admin');
 });
+
+//Ajax
+Route::post('ajax/dashboard/changeStatus', [AjaxDashboardController::class, 'changeStatus'])
+->name('ajax.dashboard.changeStatus')->middleware('admin');
+
 
 // Đăng nhập
 Route::get('admin', [AuthController::class, 'index']) ->name('auth.admin');

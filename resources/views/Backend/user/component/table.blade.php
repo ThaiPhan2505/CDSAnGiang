@@ -22,7 +22,9 @@
             <td>{{$user->email}}</td>
             <td class="">{{$user->password}}</td>
             <td class="text-center">
-                <input type="checkbox" class="js-switch" checked />
+                <input type="checkbox" value="{{$user->status}}" 
+                class="js-switch status" data-field="status" data-model="User" data-modelId="{{$user->id}}"
+                {{($user->status == 'active' or 'Active') ? 'checked' : ''}} />
             </td>
             <td class="text-center">
                 <a href="{{route('user.edit', $user->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
